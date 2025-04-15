@@ -11,4 +11,8 @@ class Product extends Model
     // kalok fillable apa aja yang bisa di isi
     // kalo guarded untuk apa saja yang mau kita lindungi
     protected $guarded = [];
+
+    public function category() {
+        return $this->belongsTo(Category::class);
+    }
 }

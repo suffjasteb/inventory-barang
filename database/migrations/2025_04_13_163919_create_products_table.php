@@ -20,8 +20,13 @@ return new class extends Migration
             $table->integer('stock');
             $table->unsignedBigInteger('category_id');
             $table->timestamps();
-
-            $table->foreign('category_id')->references('id')->on('categories')->onUpdate('casecade')->onDelete('casecade');
+            
+            $table->foreign('category_id')
+                  ->references('id')
+                  ->on('categories')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
+            
         });
     }
 
