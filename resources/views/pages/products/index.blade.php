@@ -20,6 +20,11 @@
 <div class="row">
     <div class="col">
         <div class="card">
+           <div class="card-header justify-content-end d-flex">
+            <a href="/products/create">
+                <button class="btn btn-sm btn-primary">Tambahh barang</button>
+            </a>
+        </div>
             <div class="card-body">
                 <table class="table table-bordered">
                   <thead>
