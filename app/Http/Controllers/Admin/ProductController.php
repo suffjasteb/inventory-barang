@@ -48,4 +48,38 @@ class ProductController extends Controller
         ]);
         return redirect('/products');
     }
+
+    public function edit(Product $product) {
+        $categories = Category::all();
+        return view('pages.products.edit', [
+            "product" => $product,
+            "categories" => $categories
+        ]);
+    }
+
+    public function update(Request $request, Product $product) {
+        $validate = $request->validate([
+            'name' => 'required|string|min:3',
+            'description' => 'nullable|string',
+            'sku' => 'required',
+            'price' => 'required',
+            'stock' => 'required',
+            'category_id' => 'required'
+        ]);
+
+        $product->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'sku' => $request->sku,
+            'price' => $request->price,
+            'stock' => $request->stock,
+            'category_id' => $request->category_id
+        ]);
+        return redirect('/products');
+    }
+
+    public function delete(Product $product) {
+        $product->delete();
+        return redirect('/products');
+    }
 }

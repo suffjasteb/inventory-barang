@@ -1,4 +1,4 @@
-{{-- disini kita akan coba untuk menggunakan layout yang sudah kita buat --}}
+<!-- {{-- disini kita akan coba untuk menggunakan layout yang sudah kita buat --}} -->
 @extends('layouts.main')
 
 @section('header')
@@ -36,6 +36,8 @@
                         <th>Price</th>
                         <th>Stock</th>
                         <th>Category</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                   </thead>
                   {{--  --}}
@@ -49,6 +51,14 @@
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->stock }}</td>
                     <td>{{ $product->category->name }}</td>
+                    <td><a href="/products/edit/{{ $product->id }}" class="btn btn-success btn-sm">Edit</a></td>
+                    <td>
+                        <form action="/products/{{ $product->id }}" method="POST" onsubmit="return confirm('yakin ingin hapus produk ini ?')">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
                 </tr>
                    @endforeach
                   </tbody>
