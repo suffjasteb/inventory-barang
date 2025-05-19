@@ -8,5 +8,6 @@
 <body>
     <h1>hello world</h1>
     <button><a href="/products">Products</a></button>
+    <button><a href="/login">login</a></button>
 </body>
 </html>

@@ -75,7 +75,7 @@ class ProductController extends Controller
             'stock' => $request->stock,
             'category_id' => $request->category_id
         ]);
-        return redirect('/products');
+        return redirect('/products')->with('success', 'Product has been updated');
     }
 
     public function delete(Product $product) {
